@@ -1,0 +1,25 @@
+.collection{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+    background-color: rgb(71, 71, 71);
+    padding: 0.1rem 2rem;
+    width: 50vw;
+    border-radius: 3rem;
+    margin: 1rem;
+}
+
+.remove-button{
+    border-radius: 3rem;
+    background-color: #2b2b2d;
+    color: white;
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+}
+
+.creation-date{
+    color: #969696;
+    font-size: 0.8rem;
+}
