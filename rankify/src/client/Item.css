@@ -1,0 +1,21 @@
+.item {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(71, 71, 71);
+    width: 30vw;
+    border-radius: 3rem;
+    padding: 0.1rem 3rem;
+    margin: 1rem;
+}
+
+.item:hover {
+    background: #9f9f9f;
+    color: black;
+}
+
+.selected {
+    background: #b69840; /* Change this color to what you prefer */
+    color: white;
+}

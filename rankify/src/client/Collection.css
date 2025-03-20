@@ -23,3 +23,13 @@
     color: #969696;
     font-size: 0.8rem;
 }
+
+.name{
+    color: white;
+    text-decoration: underline;
+}
+
+
+.name:hover{
+    color: #969696;
+}
