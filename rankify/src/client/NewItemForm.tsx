@@ -1,0 +1,76 @@
+import "./NewItemForm.css";
+import { IItem } from "./interfaces/Item";
+import { useState } from "react";
+
+interface NewItemFormProps {
+    onClose: () => void;
+    onSubmit: (item: IItem) => void;
+}
+
+export default function NewItemForm({ onClose, onSubmit }: NewItemFormProps){
+    const [newItem, setNewItem] = useState<IItem>({
+        name: "",
+        rating: 0,
+        dateCreated: new Date(),
+        comment: "",
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setNewItem((prev) => ({
+            ...prev,
+            [name]: name === "rating" ? Number(value) : value,
+        }));
+    };
+
+    const handleSubmit = () => {
+        if (newItem.name) {
+            onSubmit(newItem);
+            onClose();
+        }
+    };
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        if (e.key === "Enter") {
+            e.preventDefault(); // Prevents form from submitting unexpectedly
+            handleSubmit();
+        }
+    };
+
+    return (
+        <div className="new-item-form">
+            <button className="close-btn" onClick={onClose}>x</button>
+            <div className="form">
+                <div className="form-top">
+                    <input
+                        type="text"
+                        name="name"
+                        className="form-item-name"
+                        value={newItem.name}
+                        onChange={handleChange}
+                        onKeyDown={handleKeyDown}
+                        placeholder="Enter item name..."
+                    />
+                    <input
+                        type="number"
+                        name="rating"
+                        className="form-item-rating"
+                        value={newItem.rating}
+                        onChange={handleChange}
+                        onKeyDown={handleKeyDown}
+                        placeholder="Enter item rating..."
+                    />
+                </div>
+                <textarea
+                    name="comment"
+                    className="form-item-comment"
+                    value={newItem.comment}
+                    onChange={handleChange}
+                    onKeyDown={handleKeyDown}
+                    placeholder="Enter comments..."
+                />
+            </div>
+            <button className="add-item-btn" onClick={handleSubmit}>Add Item</button>
+        </div>
+    )
+}

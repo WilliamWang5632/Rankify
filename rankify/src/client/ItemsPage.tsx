@@ -4,7 +4,8 @@ import "./ItemsPage.css";
 import { IItem } from "./interfaces/Item";
 import { ICollectionItem } from "./interfaces/CollectionItem";
 import Item from "./Item";
-import { mockItems } from "./mocks/mockItems";
+import NewItemForm from "./NewItemForm";
+//import { mockItems } from "./mocks/mockItems";
 import { useState } from "react";
 
 export default function ItemsPage() {
@@ -27,14 +28,23 @@ export default function ItemsPage() {
   const [selectedItem, setSelectedItem] = useState<IItem | null>(
     items.length > 0 ? items[0] : null
   );
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
-  const handleAddItem = () => {
-    const newItem = mockItems[3];
-    setItems((prevItems) => [...prevItems, newItem]);
+  const handleAddItem = (item: IItem) => {
+    // const newItem = mockItems[3];
+    setItems((prevItems) => [...prevItems, item]);
   
     if (selectedItem === null) {
-      setSelectedItem(newItem);
+      setSelectedItem(item);
     }
+  };
+
+  const handleOpenForm = () => {
+    setIsFormOpen(true);
+  };
+
+  const handleCloseForm = () => {
+    setIsFormOpen(false); // Hide the form
   };
 
   const handleRemoveItem = (index: number) => {
@@ -50,7 +60,7 @@ export default function ItemsPage() {
       <div className="header">
         <button onClick={() => navigate("/")}>Back</button>
         <h2>{name}</h2>
-        <p className="add-item" onClick={() => handleAddItem()}>+</p>
+        <p className="add-item" onClick={() => handleOpenForm()}>+</p>
         <div>sort by</div>
         <input
             className="search-input"
@@ -66,7 +76,11 @@ export default function ItemsPage() {
             <p className="item-details-name">{selectedItem?.name}</p>
             <p className="item-details-rating">{selectedItem?.rating}/10</p>
           </div>
-          <img className="item-image" src={selectedItem?.image} alt="item" />
+          {selectedItem?.image ? (
+            <img className="item-image" src={selectedItem.image} alt="item" />
+          ) : (
+            <div className="blank-image"></div>
+          )}
           <p className="comment">{selectedItem?.comment}</p>
           <p>{selectedItem?.dateCreated.toLocaleString()}</p>
         </div>
@@ -83,6 +97,7 @@ export default function ItemsPage() {
         </div>
         
       </div>
+      {isFormOpen && <NewItemForm onSubmit={handleAddItem} onClose={handleCloseForm} />}
     </div>
   );
 }

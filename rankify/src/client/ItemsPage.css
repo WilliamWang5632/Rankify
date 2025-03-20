@@ -83,6 +83,13 @@
     display: block;
 }
 
+.blank-image {
+    height: 25rem;
+    width: 25rem;
+    border-radius: 1.5rem;
+    background-color: #333;
+}
+
 .add-item {
     background-color: #DDD;
     color: black;
