@@ -1,42 +1,24 @@
-// //import React from "react";
-// import"./Collection.css";
-// import { CollectionItem } from "./interfaces/CollectionItem";
-
-// interface CollectionProps {
-//     collectionItem: CollectionItem;
-//     onRemove: () => void;
-// }
-
-// export default function Collection({collectionItem, onRemove}: CollectionProps) {
-//     return (
-//         <div className="collection">
-//             <p>{collectionItem.name}</p>
-//             <p className="creation-date">{collectionItem.dateCreated.toLocaleString()}</p>
-//             <p className="remove-button" onClick={onRemove}>x</p>
-//         </div>
-//     );
-// };
-
-
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Collection.css";
-
-interface CollectionItem {
-  name: string;
-  dateCreated: Date;
-}
+import { ICollectionItem } from "./interfaces/CollectionItem";
 
 interface CollectionProps {
-  collectionItem: CollectionItem;
+  collectionItem: ICollectionItem;
   onRemove: () => void;
 }
 
 export default function Collection({ collectionItem, onRemove }: CollectionProps) {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate(`/collection/${collectionItem.name}`, { state: { collection: collectionItem } });
+  };
+  
   return (
     <div className="collection">
-      <Link to={`/collection/${collectionItem.name}`} className="collection-link">
-        <p className="name">{collectionItem.name}</p>
-      </Link>
+      <p className="name collection-link" onClick={handleNavigate}>
+        {collectionItem.name}
+      </p>
       <p className="creation-date">{collectionItem.dateCreated.toLocaleString()}</p>
       <p className="remove-button" onClick={onRemove}>x</p>
     </div>

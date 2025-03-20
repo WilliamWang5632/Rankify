@@ -3,23 +3,20 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import Collection from "./Collection";
 import ItemsPage from "./ItemsPage";
-
-interface CollectionItem {
-  name: string;
-  dateCreated: Date;
-}
+import { ICollectionItem } from "./interfaces/CollectionItem";
 
 function App() {
-  const [collections, setCollections] = useState<CollectionItem[]>([]);
+  const [collections, setCollections] = useState<ICollectionItem[]>([]);
   const [newCollectionName, setNewCollectionName] = useState("");
   const [sortType, setSortType] = useState<"oldest" | "latest" | "asc" | "desc">("latest");
 
   const handleAddCollection = () => {
     if (newCollectionName.trim() === "") return;
 
-    const newCollection: CollectionItem = {
+    const newCollection: ICollectionItem = {
       name: newCollectionName,
       dateCreated: new Date(),
+      items: [],
     };
 
     setCollections([...collections, newCollection]);

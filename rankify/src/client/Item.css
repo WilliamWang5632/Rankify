@@ -19,3 +19,13 @@
     background: #b69840; /* Change this color to what you prefer */
     color: white;
 }
+
+.remove-item{
+    border-radius: 3rem;
+    background-color: #2b2b2d;
+    color: white;
+    cursor: pointer;
+    height: 2rem;
+    width: 2rem;
+    margin-right: -2rem;
+}

@@ -82,3 +82,16 @@
     object-position: center; /* Centers the image */
     display: block;
 }
+
+.add-item {
+    background-color: #DDD;
+    color: black;
+    border-radius: 2rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    display: flex;
+    font-size: 2rem;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
