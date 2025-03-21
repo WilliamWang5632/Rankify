@@ -1,13 +1,13 @@
 .header {
-    position: fixed; /* or fixed if you want it to stay while scrolling */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     display: flex;
     justify-content: space-around;
-    align-items: center; /* Centers content vertically */
-    height: 10vh; /* Adjust height as needed */
-    background-color: #333; /* Example background color */
+    align-items: center;
+    height: 10vh;
+    background-color: #333;
     color: white;
 }
 
@@ -38,8 +38,11 @@
 }
 
 .comment {
-    max-width: 30vw;
-    font-size: 0.7rem;
+    max-width: 35vw;
+    font-size: 0.9rem;
+    max-height: 20vh; /* Adjust this value based on your layout */
+    overflow-y: auto;
+    padding-right: 0.5rem; /* Adds a small padding for scrollbar spacing */
 }
 
 .item-top {
@@ -75,18 +78,19 @@
 }
 
 .item-image {
-    height: 25rem;
-    width: 25rem;
+    height: 18rem;
+    width: 18rem;
     border-radius: 1.5rem;
-    object-fit: cover; /* Ensures the image fills the box without distortion */
-    object-position: center; /* Centers the image */
+    object-fit: cover;
+    object-position: center;
     display: block;
 }
 
 .blank-image {
-    height: 25rem;
-    width: 25rem;
+    height: 18rem;
+    width: 18rem;
     border-radius: 1.5rem;
+    margin-top: 1.2rem;
     background-color: #333;
 }
 

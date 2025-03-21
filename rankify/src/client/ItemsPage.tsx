@@ -31,7 +31,6 @@ export default function ItemsPage() {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
   const handleAddItem = (item: IItem) => {
-    // const newItem = mockItems[3];
     setItems((prevItems) => [...prevItems, item]);
   
     if (selectedItem === null) {
