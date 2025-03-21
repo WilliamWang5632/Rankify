@@ -41,8 +41,11 @@
     max-width: 35vw;
     font-size: 0.9rem;
     max-height: 20vh; /* Adjust this value based on your layout */
-    overflow-y: auto;
-    padding-right: 0.5rem; /* Adds a small padding for scrollbar spacing */
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    padding-right: 0.5rem; /* Adds space for scrollbar */
+    word-wrap: break-word; /* Ensures long words wrap */
+    white-space: normal; /* Prevents text from forcing horizontal scrolling */
 }
 
 .item-top {
@@ -58,7 +61,7 @@
     align-items: center;
     position: fixed;
     top: 12vh;
-    left: 10vw;
+    left: 14vw;
 }
 
 .item-details-name {
@@ -78,8 +81,8 @@
 }
 
 .item-image {
-    height: 18rem;
-    width: 18rem;
+    height: 22rem;
+    width: 22rem;
     border-radius: 1.5rem;
     object-fit: cover;
     object-position: center;
@@ -87,8 +90,8 @@
 }
 
 .blank-image {
-    height: 18rem;
-    width: 18rem;
+    height: 22rem;
+    width: 22rem;
     border-radius: 1.5rem;
     margin-top: 1.2rem;
     background-color: #333;

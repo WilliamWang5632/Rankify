@@ -1,4 +1,4 @@
-import { IItem } from './interfaces/Item';
+import { IItem } from '../interfaces/Item';
 import "./Item.css";
 
 interface ItemProps {

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import "./App.css";
 import Collection from "./Collection";
 import ItemsPage from "./ItemsPage";
-import { ICollectionItem } from "./interfaces/CollectionItem";
+import { ICollectionItem } from "../interfaces/CollectionItem";
 
 function App() {
   const [collections, setCollections] = useState<ICollectionItem[]>([]);

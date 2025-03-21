@@ -1,6 +1,6 @@
 import { Link, useNavigate } from "react-router-dom";
 import "./Collection.css";
-import { ICollectionItem } from "./interfaces/CollectionItem";
+import { ICollectionItem } from "../interfaces/CollectionItem";
 
 interface CollectionProps {
   collectionItem: ICollectionItem;

@@ -1,5 +1,5 @@
 import "./NewItemForm.css";
-import { IItem } from "./interfaces/Item";
+import { IItem } from "../interfaces/Item";
 import { useState } from "react";
 
 interface NewItemFormProps {

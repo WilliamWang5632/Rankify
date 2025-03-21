@@ -1,8 +1,8 @@
 import { useLocation, useParams, useNavigate } from "react-router-dom";
 import "./ItemsPage.css";
 //import { useState } from "react";
-import { IItem } from "./interfaces/Item";
-import { ICollectionItem } from "./interfaces/CollectionItem";
+import { IItem } from "../interfaces/Item";
+import { ICollectionItem } from "../interfaces/CollectionItem";
 import Item from "./Item";
 import NewItemForm from "./NewItemForm";
 //import { mockItems } from "./mocks/mockItems";
