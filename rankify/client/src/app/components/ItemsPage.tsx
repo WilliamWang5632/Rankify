@@ -46,8 +46,8 @@ export default function ItemsPage() {
     setIsFormOpen(false); // Hide the form
   };
 
-  const handleRemoveItem = (index: number) => {
-    setItems(items.filter((_, i) => i !== index));
+  const handleRemoveItem = (id: string) => {
+    setItems(items.filter((item) => item.id !== id));
   };
 
   const setSearchInput = (searchInput: string) => {
@@ -84,11 +84,11 @@ export default function ItemsPage() {
           <p>{selectedItem?.dateCreated.toLocaleString()}</p>
         </div>
         <div className="items">
-          {items.map((item, index) => (
+          {items.map((item) => (
             <Item
-              key={index}
+              key={item.id}
               item={item}
-              onRemove={() => handleRemoveItem(index)}
+              onRemove={() => handleRemoveItem(item.id)}
               onClick={() => setSelectedItem(item)}
               selected={selectedItem?.name === item.name}
             />

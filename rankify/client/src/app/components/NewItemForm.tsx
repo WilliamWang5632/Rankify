@@ -9,6 +9,7 @@ interface NewItemFormProps {
 
 export default function NewItemForm({ onClose, onSubmit }: NewItemFormProps){
     const [newItem, setNewItem] = useState<IItem>({
+        id: crypto.randomUUID(),
         name: "",
         rating: 0,
         dateCreated: new Date(),

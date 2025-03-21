@@ -14,6 +14,7 @@ function App() {
     if (newCollectionName.trim() === "") return;
 
     const newCollection: ICollectionItem = {
+      id: crypto.randomUUID(),
       name: newCollectionName,
       dateCreated: new Date(),
       items: [],
@@ -23,8 +24,8 @@ function App() {
     setNewCollectionName("");
   };
 
-  const handleRemoveCollection = (index: number) => {
-    setCollections(collections.filter((_, i) => i !== index));
+  const handleRemoveCollection = (id: string) => {
+    setCollections(collections.filter((collection) => collection.id !== id));
   };
 
   const sortedCollections = [...collections].sort((a, b) => {
@@ -63,11 +64,11 @@ function App() {
             </div>
 
             <div className="collections">
-              {sortedCollections.map((collection, index) => (
+              {sortedCollections.map((collection) => (
                 <Collection
-                  key={index}
+                  key={collection.id}
                   collectionItem={collection}
-                  onRemove={() => handleRemoveCollection(index)}
+                  onRemove={() => handleRemoveCollection(collection.id)}
                 />
               ))}
             </div>
